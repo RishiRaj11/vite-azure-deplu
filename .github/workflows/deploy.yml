@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'  # <-- ✅ Upgraded from 18 to 20
+      - name: 🌍 Inject VITE_API_URL
+        run: echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" >> $GITHUB_ENV    
 
       - name: 📦 Install Dependencies
         run: npm ci
